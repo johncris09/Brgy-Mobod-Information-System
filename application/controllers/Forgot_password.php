@@ -10,6 +10,8 @@ class Forgot_password extends CI_Controller
 
   public function index()
   { 
+		$data["page_title"] = "Forget Password";
+		$this->load->view('forgot_password', $data);  
   }
 
 }
