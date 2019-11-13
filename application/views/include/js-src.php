@@ -23,3 +23,5 @@
 
 	<!-- Main JS-->
 	<script src="<?php echo base_url() ?>assets/js/main.js"></script>
+	<!-- Project JS-->
+	<script src="<?php echo base_url() ?>assets/js/bis.js"></script>
