@@ -10,23 +10,22 @@
 	<div class="container">
 		<div class="row  ">
 			<div class="mt-5  col-lg-5 col-md-12 ">
-				<form action="">
+				<form id="login-form" method="post">
 					<section class="form-elegant"> 
 						<img src="<?php echo base_url(); ?>assets/images/icon/logo-blue.png">
 						<div class="card mt-5">
 							<div class="card-body mx-4">
 								<div class="text-center">
 									<h3 class="dark-grey-text mb-5">
-										<strong>Sign in</strong>
+										<strong>Sign in</strong> 
 									</h3>
+									<span class="error text-hide text-danger"> <i class="fa fa-info-circle"></i> Invalid Username/Password</span> 
 								</div>
 								<div class="md-form">
-									<input type="text" id="Form-email1" class="form-control" placeholder="Username" required autofocus>
-									<span class="error text-hide text-danger"> <i class="fa fa-info-circle"></i> Invalid Username</span>
+									<input type="text" name="username" class="form-control" placeholder="Username" required autofocus>
 								</div>
 								<div class="md-form pb-3">
-									<input type="password" id="Form-pass1" class="form-control" placeholder="Password" required>
-									<span class="error text-hide text-danger"> <i class="fa fa-info-circle"></i> Invalid Password</span>
+									<input type="password" name="password" class="form-control" placeholder="Password" required>
 									<p class="font-small blue-text d-flex justify-content-end">Forgot
 										<a href="<?php echo base_url() ?>forgot_password" class="blue-text ml-1"> Password?</a>
 									</p>
