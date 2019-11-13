@@ -11,7 +11,7 @@
 		<div class="row  ">
 			<div class="mt-5  col-lg-5 col-md-12 ">
 				<form action="">
-					<section class="form-elegant">
+					<section class="form-elegant"> 
 						<img src="<?php echo base_url(); ?>assets/images/icon/logo-blue.png">
 						<div class="card mt-5">
 							<div class="card-body mx-4">
