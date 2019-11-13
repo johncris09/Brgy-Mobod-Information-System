@@ -28,7 +28,7 @@
 									<input type="password" id="Form-pass1" class="form-control" placeholder="Password" required>
 									<span class="error text-hide text-danger"> <i class="fa fa-info-circle"></i> Invalid Password</span>
 									<p class="font-small blue-text d-flex justify-content-end">Forgot
-										<a href="#" class="blue-text ml-1"> Password?</a>
+										<a href="<?php echo base_url() ?>forgot_password" class="blue-text ml-1"> Password?</a>
 									</p>
 								</div>
 								<div class="text-center mb-3">
