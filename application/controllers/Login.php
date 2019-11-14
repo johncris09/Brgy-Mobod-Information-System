@@ -25,6 +25,7 @@ class Login extends CI_Controller
 		if($login > 0)
 		{ 
 			$this->login_history($user_info);
+			$this->set_session($user_info);
 			$data["response"] =  true;
 		}
 		else
@@ -35,9 +36,34 @@ class Login extends CI_Controller
 		echo json_encode($data);
 	}
 
-	public function login_history($user_info)
+	private function login_history($user_info)
 	{
 		return $this->login_model->login_history($user_info); 
 	}
+
+	private function set_session($user_info)
+	{
+		$user_info = $this->login_model->get_user_info($user_info); 
+		 
+		foreach($user_info as $row)
+		{
+			$array = array(
+				'user_id'         => $row["user_id"],
+				'first_name'      => $row["first_name"],
+				'last_name'       => $row["last_name"],
+				'middle_name'     => $row["middle_name"],
+				'email'           => $row["email"],
+				'username'        => $row["username"],
+				'user_type'       => $row["user_type"],
+				'profile_picture' => $row["profile_picture"],
+				'position_id'     => $row["position"],
+				'date_registered' => $row["date_registered"],
+			);
+		} 
+		$this->session->set_userdata( $array ); 
+		
+	}
+
+
 }
   
