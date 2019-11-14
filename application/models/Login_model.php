@@ -12,18 +12,7 @@ class Login_model extends CI_Model {
   { 
 		$this->db->where($user_info);
 		$query =  $this->db->get('user');  
-		
-		// check if user is exist
-		if($query->num_rows() > 0)
-		{ 
-			 return TRUE;
-		}
-		else
-		{
-			return FALSE;
-		}
-		
-	}  
- 
+		return $query->num_rows();  
+	}   
 
 } 
