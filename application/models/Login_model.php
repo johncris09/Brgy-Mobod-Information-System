@@ -38,4 +38,36 @@ class Login_model extends CI_Model {
 		return $this->db->get()->result_array();
 	}
 
+	public function update_logout_date($user_id)
+	{
+		$data = array(
+			'logout_date'	=> date('Y-m-d H:i:s', time()), 
+		);
+
+		$query = $this->db->update('login_history', $data, "history_id = " . $this->latest_login($user_id));
+		return $query;
+	}
+
+	
+  private function latest_login($user_id)
+	{
+		// get the latest login date
+		$this->db->where('user_id', $user_id);
+		$this->db->order_by('login_date', 'DESC');
+		$this->db->limit(1);
+		$query = $this->db->get('login_history');
+
+		if($query->num_rows() > 0)
+		{
+			foreach($query->result() as $row)
+			{
+				return $row->history_id;
+			}
+		}
+		else
+		{
+			return 'FALSE';
+		}
+	}
+
 } 
