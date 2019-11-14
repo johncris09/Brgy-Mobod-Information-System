@@ -16,7 +16,7 @@ class Bis extends CI_Controller
   public function index()
   {  
 		$data["page_title"] = "Dashboard";
-		$this->load->view('index', $data); 
+		$this->load->view('admin/index', $data); 
 	}
 
 	public function logout()
