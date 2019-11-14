@@ -1,7 +1,7 @@
 		<!-- MENU SIDEBAR-->
 		<aside class="menu-sidebar d-none d-lg-block">
 			<div class="logo">
-				<a href="#">
+				<a href="<?php echo base_url(); ?>">
 					<img src="<?php echo base_url() ?>assets/images/icon/logo-blue.png" alt="CoolAdmin" />
 				</a>
 			</div>
