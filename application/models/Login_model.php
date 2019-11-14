@@ -29,4 +29,13 @@ class Login_model extends CI_Model {
 		return $this->db->insert('login_history', $history_data);
 	}
 
+	public function get_user_info($user_info)
+	{
+		$this->db->where($user_info); 
+		$this->db->from('user');
+		$this->db->join('position', 'position.position_id = user.position');
+		$this->db->join('user_type', 'user_type.user_type_id = user.user_type');
+		return $this->db->get()->result_array();
+	}
+
 } 
