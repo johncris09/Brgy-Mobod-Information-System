@@ -13,6 +13,18 @@
 								<i class="fas fa-tachometer-alt"></i>Dashboard
 							</a> 
 						</li> 
+						<li class="has-sub">
+							<a class="js-arrow open" href="#">
+								<i class="fas fa-road"></i>Purok</a>
+							<ul class="list-unstyled navbar__sub-list js-sub-list" >
+								<li>
+								<a href="<?php echo base_url() ?>purok/add_purok"> <i class="fas fa-circle-notch"></i> Add Purok</a>
+								</li> 
+								<li>
+									<a href="<?php echo base_url() ?>purok"><i class="fas fa-circle-notch"></i> View Purok</a>
+								</li>
+							</ul>
+						</li>
 					</ul>
 				</nav>
 			</div>
