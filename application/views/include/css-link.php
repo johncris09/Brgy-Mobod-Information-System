@@ -21,6 +21,7 @@
 	<link href="<?php echo base_url() ?>assets/vendor/slick/slick.css" rel="stylesheet" media="all">
 	<link href="<?php echo base_url() ?>assets/vendor/select2/select2.min.css" rel="stylesheet" media="all">
 	<link href="<?php echo base_url() ?>assets/vendor/perfect-scrollbar/perfect-scrollbar.css" rel="stylesheet" media="all">
-
+	<link href="<?php echo base_url() ?>assets/vendor/jquery-datatables/media/css/jquery.dataTables.min.css" rel="stylesheet" media="all">
+	
 	<!-- Main CSS-->
 	<link href="<?php echo base_url() ?>assets/css/theme.css" rel="stylesheet" media="all">
