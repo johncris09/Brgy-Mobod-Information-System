@@ -14,5 +14,24 @@ class Login extends CI_Controller
 		$data["page_title"] = "Login";
 		$this->load->view('login', $data); 
 	} 
+
+	public function login()
+	{
+		$user_info = array(
+			'username' => $this->input->post('username'),
+			'password' => md5($this->input->post('password')),
+		);
+		$login = $this->login_model->login($user_info);
+		if($login > 0)
+		{ 
+			$data["response"] = "true";
+		}
+		else
+		{
+			$data["response"] = "false";
+		}
+
+		echo json_encode($login);
+	}
 }
   
