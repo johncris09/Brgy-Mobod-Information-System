@@ -8,10 +8,10 @@ class Purok_model extends CI_Model {
     parent::__construct();
   }
  
-  public function index()
-  {
-    // 
-  } 
+  public function fetch_purok()
+	{
+		return $this->db->get('purok');
+	}
 
 }
  
