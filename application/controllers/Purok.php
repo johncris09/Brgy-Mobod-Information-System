@@ -12,7 +12,8 @@ class Purok extends CI_Controller
 
   public function index()
   {
-    // 
+		$data["page_title"] = "Purok";
+		$this->load->view('admin/purok', $data); 
   }
 
 }
