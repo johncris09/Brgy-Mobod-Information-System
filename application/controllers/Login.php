@@ -24,14 +24,20 @@ class Login extends CI_Controller
 		$login = $this->login_model->login($user_info);
 		if($login > 0)
 		{ 
-			$data["response"] = "true";
+			$this->login_history($user_info);
+			$data["response"] =  true;
 		}
 		else
 		{
-			$data["response"] = "false";
+			$data["response"] = false;
 		}
 
-		echo json_encode($login);
+		echo json_encode($data);
+	}
+
+	public function login_history($user_info)
+	{
+		return $this->login_model->login_history($user_info); 
 	}
 }
   
