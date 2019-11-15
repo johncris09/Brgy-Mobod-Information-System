@@ -58,5 +58,11 @@ class User_type extends CI_Controller
 		echo json_encode($output);
 	}
 
+	
+	public function add_user_type()
+	{
+		$data["page_title"] = "Add User Type";
+		$this->load->view('admin/add_user_type', $data); 
+	}
 }
  
