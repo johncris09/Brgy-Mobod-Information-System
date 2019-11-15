@@ -66,7 +66,28 @@
 			},
 		}); 
 	});
- 
+
+	 
+	$('#update_purok_form').on('submit', function (event) {
+		event.preventDefault();
+		var purok_id = $('#purok_id').val(); 
+		$.ajax({
+			url     : "../update_purok/" + purok_id,
+			method  : "POST",
+			data    : $(this).serialize(),
+			dataType: "json",
+			success : function (data) {  
+				if (data.response) {
+					notify(data.title, data.content, data.icon, data.type, data.btnClass);
+				} else {
+					notify(data.title, data.content, data.icon, data.type, data.btnClass);
+				}
+			},
+			error: function (xhr, status, error) { 
+				notify('A Database Error Occurred', 'Duplicate entry', 'fa fa-info', 'blue', 'btn-info');  
+			},
+		});
+	});
 
 
 	function notify(title, content, icon, type, btnClass = 'btn-warning', okAction = "") {
