@@ -165,6 +165,28 @@
 		confirm_delete('position/delete_position/', position_id);
 	});
 
+	function load_user() {
+		$.ajax({
+			url     : "user/load_user",
+			method  : "POST",
+			dataType: "json",
+			success : function (data) { 
+				// console.info(data)
+				$('#user_list').html(data);
+				$('#user_data').dataTable({
+					"scrollY": 200,
+					"scrollX": true,
+				});
+			},
+			error: function (xhr, status, error) { 
+				console.info(xhr.responseText);
+			},
+		});
+	}
+
+	load_user();
+
+
 	
 	function confirm_delete(url, id) {
 		$.confirm({
