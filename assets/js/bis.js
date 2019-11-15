@@ -61,5 +61,36 @@
 			},
 		});
 	});
+
+
+	function notify(title, content, icon, type, btnClass = 'btn-warning', okAction = "") {
+		$.confirm({
+			title            : title,
+			content          : content,
+			columnClass      : 'col-md-4 col-md-offset-8 col-xs-4 col-xs-offset-8',
+			containerFluid   : true,                                                  // this will add 'container-fluid' instead of 'container'
+			icon             : icon,
+			theme            : 'modern',
+			closeIcon        : true,
+			animation        : 'top',
+			closeAnimation   : 'bottom',
+			typeAnimated     : true,
+			backgroundDismiss: true,
+			type             : type,
+			buttons          : {
+				Ok: {
+					text    : 'Ok',
+					btnClass: btnClass,
+					keys    : ['enter'],
+					action  : function () {
+						if (okAction != "") {
+							window.location.href = okAction;
+						}
+					}
+				},
+				close: function () {}
+			}
+		});
+	}
   
 })(jQuery);
