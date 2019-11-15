@@ -62,7 +62,37 @@ class Purok extends CI_Controller
 		$data["page_title"] = "Add Purok";
 		$this->load->view('admin/add_purok', $data); 
 	}
- 
+
+	public function insert_purok()
+	{
+		$purok_info = array(
+			'purok' => $_POST['purok'], 
+		);
+
+		$insert_purok = $this->purok_model->insert_purok($purok_info);
+		if ($insert_purok > 0) {
+			$data = [
+				'response' => true,
+				'title'    => "Successfully Added",
+				'content'  => "New Record Successfully Added!",
+				'icon'     => 'fa fa-check',
+				'type'     => 'green',
+				'btnClass' => 'btn-success',
+			];
+		} else {
+			$data = [
+				'response' => false,
+				'title'    => "Error!",
+				'content'  => "Something went wrong",
+				'icon'     => 'fa fa-warning',
+				'type'     => 'red',
+				'btnClass' => 'btn-danger',
+			];
+		}
+
+		echo json_encode($data);
+	}
+
 }
 
  
