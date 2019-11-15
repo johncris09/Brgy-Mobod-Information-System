@@ -23,6 +23,28 @@
 			}
 		});
 	});
-	
 
+	
+	function load_purok() {
+		$.ajax({
+			url     : "purok/load_purok",
+			method  : "POST",
+			dataType: "json",
+			success : function (data) { 
+				$('#purok_list').html(data);
+				$('#purok_data').dataTable({
+					"scrollY": 200,
+					"scrollX": true,
+				});
+			},
+			error: function (xhr, status, error) { 
+				// console.info(xhr.responseText);
+			},
+		});
+	}
+
+	load_purok();
+
+	 
+  
 })(jQuery);
