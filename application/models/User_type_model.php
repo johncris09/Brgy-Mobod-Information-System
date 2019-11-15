@@ -6,12 +6,12 @@ class User_type_model extends CI_Model {
   public function __construct()
   {
     parent::__construct();
-  }
-
-	public function index()
-  {
-    // 
-  }
+	} 
+	
+  public function fetch_user_type()
+	{
+		return $this->db->get('user_type');
+	}
  
 }
  
