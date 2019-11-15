@@ -8,10 +8,10 @@ class Position_model extends CI_Model {
     parent::__construct();
   }
  
-  public function index()
-  {
-    // 
-  } 
+  public function fetch_position()
+	{
+		return $this->db->get('position');
+	}
 
 }
  
