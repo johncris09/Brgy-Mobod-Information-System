@@ -59,6 +59,12 @@ class Position extends CI_Controller
 		echo json_encode($output);
 	}
 
+	public function add_position()
+	{
+		$data["page_title"] = "Add Position";
+		$this->load->view('admin/add_position', $data); 
+	}
+
 }
 
  
