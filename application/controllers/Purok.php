@@ -93,6 +93,16 @@ class Purok extends CI_Controller
 		echo json_encode($data);
 	}
 
+	public function edit_purok($purok_id)
+	{
+		$data["page_title"] = "Edit Purok";
+		$data['purok']  = $this->purok_model->get_purok($purok_id);
+		$this->load->view('admin/Edit_purok', $data); 
+	}
+
+	
+	
+
 }
 
  
