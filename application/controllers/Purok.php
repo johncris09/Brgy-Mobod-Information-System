@@ -100,7 +100,36 @@ class Purok extends CI_Controller
 		$this->load->view('admin/Edit_purok', $data); 
 	}
 
-	
+	public function update_purok($purok_id)
+	{
+		$purok_info = array(
+			'purok_id'   => $purok_id,
+			'purok' => $_POST['purok'], 
+		);
+
+		$update_purok = $this->purok_model->update_purok($purok_info);
+		if ($update_purok) {
+			$data = [
+				'response' => true,
+				'title'    => "Successfully Updated",
+				'content'  => "New Record Successfully Updated!",
+				'icon'     => 'fa fa-check',
+				'type'     => 'green',
+				'btnClass' => 'blue-gradient btn-rounded z-depth-1a',
+			];
+		} else {
+			$data = [
+				'response' => false,
+				'title'    => "Error!",
+				'content'  => "Something went wrong",
+				'icon'     => 'fa fa-warning',
+				'type'     => 'red',
+				'btnClass' => 'btn-danger',
+			];
+		}
+
+		echo json_encode($data);
+	}
 	
 
 }
