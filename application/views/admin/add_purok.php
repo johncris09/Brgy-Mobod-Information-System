@@ -28,8 +28,8 @@
 										<hr>
 										<form id="add_purok_form" method="post">
 											<div class="form-group">
-												<label for="cc-payment" class="control-label mb-1">Purok</label>
-												<input name="purok" type="text" class="form-control" placeholder="Purok" required autofocus>
+												<label for="purok" class="control-label mb-1">Purok</label>
+												<input name="purok" id="purok" type="text" class="form-control" placeholder="Purok" required autofocus>
 											</div>
 											<div>
 												<button title="Add Purok" type="submit"
