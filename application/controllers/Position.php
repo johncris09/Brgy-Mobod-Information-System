@@ -133,7 +133,38 @@ class Position extends CI_Controller
 
 		echo json_encode($data);
 	}
- 
+
+	
+	public function delete_position($position_id)
+	{
+		$position_info = array(
+			'position_id' => $position_id
+		);
+		$data = '';
+
+		$delete_position = $this->position_model->delete_position($position_info);
+		if ($delete_position > 0) {
+			$data = [
+				'response' => true,
+				'title'    => "Successfully Deleted",
+				'content'  => "New Record Successfully Deleted!",
+				'icon'     => 'fa fa-check',
+				'type'     => 'green',
+				'btnClass' => 'blue-gradient btn-rounded z-depth-1a',
+			];
+		} else {
+			$data = [
+				'response' => false,
+				'title'    => "Error!",
+				'content'  => "Something went wrong",
+				'icon'     => 'fa fa-warning',
+				'type'     => 'red',
+				'btnClass' => 'btn-danger',
+			];
+		}
+
+		echo json_encode($data);
+	}
 
 
 }
