@@ -46,6 +46,18 @@
 										</li> 
 									</ul>
 								</li> 
+								<li class="has-sub">
+									<a class="js-arrow open" href="#">
+										<i class="fas fa-users"></i>User</a>
+									<ul class="navbar-mobile-sub__list list-unstyled js-sub-list">
+										<li>
+										<a href="<?php echo base_url() ?>user/add_user"> <i class="fas fa-circle-notch"></i> Add User</a>
+										</li> 
+										<li>
+											<a href="<?php echo base_url() ?>user"><i class="fas fa-circle-notch"></i>View User</a>
+										</li>
+									</ul>
+								</li>
 							</ul>
 						</div>
 					</nav>
