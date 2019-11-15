@@ -21,9 +21,9 @@
 	<script src="<?php echo base_url() ?>assets/vendor/parallax/dist/js/parallax.min.js">
 	</script>  
 	<script src="<?php echo base_url() ?>assets/vendor/jquery-datatables/media/js/jquery.dataTables.min.js">
-	</script>  
-	
-
+	</script>   
+	<script src="<?php echo base_url() ?>assets/vendor/jquery-confirm/js/jquery-confirm.js">
+	</script>   
 	<!-- Main JS-->
 	<script src="<?php echo base_url() ?>assets/js/main.js"></script>
 	<!-- Project JS-->
