@@ -69,6 +69,14 @@ class User_model extends CI_Model {
 			return 'FALSE';
 		}
 	}
+
+	public function get_users()
+	{ 
+		$this->db->from('user');
+		$this->db->join('position', 'position.position_id = user.position');
+		$this->db->join('user_type', 'user_type.user_type_id = user.user_type');
+		return $this->db->get();
+	}
  
 
 }
