@@ -18,6 +18,13 @@ class User_type_model extends CI_Model {
 		$this->db->insert('user_type', $user_type_info);
 		return $this->db->affected_rows();
 	} 
+
+	public function get_user_type($user_type_id)
+	{
+		$this->db->where('user_type_id', $user_type_id);
+		$query = $this->db->get('user_type');
+		return $query->result_array()[0];
+	} 
 	
  
 }
