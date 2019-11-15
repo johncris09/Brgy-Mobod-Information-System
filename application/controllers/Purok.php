@@ -77,7 +77,7 @@ class Purok extends CI_Controller
 				'content'  => "New Record Successfully Added!",
 				'icon'     => 'fa fa-check',
 				'type'     => 'green',
-				'btnClass' => 'btn-success',
+				'btnClass' => 'blue-gradient btn-rounded z-depth-1a',
 			];
 		} else {
 			$data = [
