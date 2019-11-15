@@ -64,5 +64,38 @@ class User_type extends CI_Controller
 		$data["page_title"] = "Add User Type";
 		$this->load->view('admin/add_user_type', $data); 
 	}
+
+	
+	
+	public function insert_user_type()
+	{
+		$user_type_info = array(
+			'user_type' => $_POST['user_type'], 
+		);
+
+		$insert_user_type = $this->user_type_model->insert_user_type($user_type_info);
+		if ($insert_user_type > 0) {
+			$data = [
+				'response' => true,
+				'title'    => "Successfully Added",
+				'content'  => "New Record Successfully Added!",
+				'icon'     => 'fa fa-check',
+				'type'     => 'green',
+				'btnClass' => 'blue-gradient btn-rounded z-depth-1a',
+			];
+		} else {
+			$data = [
+				'response' => false,
+				'title'    => "Error!",
+				'content'  => "Something went wrong",
+				'icon'     => 'fa fa-warning',
+				'type'     => 'red',
+				'btnClass' => 'btn-danger',
+			];
+		}
+
+		echo json_encode($data);
+	}
+
 }
  
