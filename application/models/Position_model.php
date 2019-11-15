@@ -18,7 +18,15 @@ class Position_model extends CI_Model {
 	{
 		$this->db->insert('position', $position_info);
 		return $this->db->affected_rows();
+	} 
+	
+	public function get_position($position_id)
+	{
+		$this->db->where('position_id', $position_id);
+		$query = $this->db->get('position');
+		return $query->result_array()[0];
 	}
+	
 
 }
  
