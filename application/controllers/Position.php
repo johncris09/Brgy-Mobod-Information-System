@@ -96,6 +96,45 @@ class Position extends CI_Controller
 		echo json_encode($data);
 	}
 
+	public function edit_position($position_id)
+	{
+		$data["page_title"] = "Edit Position";
+		$data['position']  = $this->position_model->get_position($position_id);
+		$this->load->view('admin/edit_position', $data); 
+	}
+
+	public function update_position($position_id)
+	{
+		$position_info = array(
+			'position_id'   => $position_id,
+			'position' => $_POST['position'], 
+		);
+
+		$update_position = $this->position_model->update_position($position_info);
+		if ($update_position) {
+			$data = [
+				'response' => true,
+				'title'    => "Successfully Updated",
+				'content'  => "New Record Successfully Updated!",
+				'icon'     => 'fa fa-check',
+				'type'     => 'green',
+				'btnClass' => 'blue-gradient btn-rounded z-depth-1a',
+			];
+		} else {
+			$data = [
+				'response' => false,
+				'title'    => "Error!",
+				'content'  => "Something went wrong",
+				'icon'     => 'fa fa-warning',
+				'type'     => 'red',
+				'btnClass' => 'btn-danger',
+			];
+		}
+
+		echo json_encode($data);
+	}
+ 
+
 
 }
 
