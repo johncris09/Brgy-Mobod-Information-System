@@ -10,10 +10,10 @@
 	<div class="container">
 		<div class="row  ">
 			<div class="mt-5  col-lg-5 col-md-12 ">
-				<form id="login-form" method="post">
+				<form id="login-form" method="post">  
 					<section class="form-elegant"> 
 						<img src="<?php echo base_url(); ?>assets/images/icon/logo-blue.png">
-						<div class="card mt-5">
+						<div class="card mt-5"> 
 							<div class="card-body mx-4">
 								<div class="text-center">
 									<h3 class="dark-grey-text mb-5">
