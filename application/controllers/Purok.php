@@ -41,9 +41,9 @@ class Purok extends CI_Controller
 						<tr>
 							<td>' . $row['purok_id'] . '</td> 
 							<td>' . ucfirst($row['purok']) . '</td>
-							<td><a title="Edit" href="' . base_url() . 'purok/edit_purok/' . $row['purok_id'] . '" class="text-warning  h5"><i class="fa fa-edit"></i></a></td>
+							<td><a title="Edit" href="' . base_url() . 'purok/edit_purok/' . $row['purok_id'] . '" class="text-warning h5"><i class="fa fa-edit"></i></a></td>
 							<td><a title="Delete"  id="' . $row['purok_id'] . '" class="text-danger h5 delete_purok"><i class="fa fa-trash"></i></a></td>
-						</tr>
+						</tr> 
 				';
 			}
 		} 
@@ -57,6 +57,12 @@ class Purok extends CI_Controller
 		echo json_encode($output);
 	}
 
+	public function add_purok()
+	{
+		$data["page_title"] = "Add Purok";
+		$this->load->view('admin/add_purok', $data); 
+	}
+ 
 }
 
  
