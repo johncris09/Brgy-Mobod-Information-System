@@ -25,7 +25,13 @@ class Purok_model extends CI_Model {
 		$query = $this->db->get('purok');
 		return $query->result_array()[0];
 	}
-	 
+	
+	public function update_purok($purok_info)
+	{
+		$this->db->where('purok_id', $purok_info['purok_id']);
+		$query = $this->db->update('purok', $purok_info);
+		return $purok_info['purok_id'];
+	}
 
 }
  
