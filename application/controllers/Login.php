@@ -25,7 +25,7 @@ class Login extends CI_Controller
 			'username' => $this->input->post('username'),
 			'password' => md5($this->input->post('password')),
 		);
-		$login = $this->login_model->login($user_info);
+		$login = $this->user_model->login($user_info);
 		if($login > 0)
 		{ 
 			$this->login_history($user_info);
@@ -42,12 +42,12 @@ class Login extends CI_Controller
 
 	private function login_history($user_info)
 	{
-		return $this->login_model->login_history($user_info); 
+		return $this->user_model->login_history($user_info); 
 	}
 
 	private function set_session($user_info)
 	{
-		$user_info = $this->login_model->get_user_info($user_info); 
+		$user_info = $this->user_model->get_user_info($user_info); 
 		 
 		foreach($user_info as $row)
 		{
