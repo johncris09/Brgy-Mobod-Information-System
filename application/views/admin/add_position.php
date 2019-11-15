@@ -21,7 +21,7 @@
 							<div class="col-md-12 ">
 								<div class="card card-cascade narrower">
 									<div class="view view-cascade gradient-card-header purple-gradient">
-										<h2 class="card-header-title my-2 mx-2 float-left text-white">Add Position</h2>
+										<h2 class="card-header-title my-2 mx-2 float-left text-white"><?php echo $page_title; ?></h2>
 									</div>
 									<div class="card-body card-body-cascade">
 										<hr>
