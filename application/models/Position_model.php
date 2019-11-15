@@ -25,7 +25,16 @@ class Position_model extends CI_Model {
 		$this->db->where('position_id', $position_id);
 		$query = $this->db->get('position');
 		return $query->result_array()[0];
-	}
+	} 
+	
+	public function update_position($position_info)
+	{
+		$this->db->where('position_id', $position_info['position_id']);
+		$query = $this->db->update('position', $position_info);
+		return $position_info['position_id'];
+	} 
+ 
+
 	
 
 }
