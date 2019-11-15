@@ -95,6 +95,29 @@
 		confirm_delete('purok/delete_purok/', purok_id);
 	});
 
+
+
+	function load_position() {
+		$.ajax({
+			url     : "position/load_position",
+			method  : "POST",
+			dataType: "json",
+			success : function (data) { 
+				$('#position_list').html(data);
+				$('#position_data').dataTable({
+					"scrollY": 200,
+					"scrollX": true,
+				});
+			},
+			error: function (xhr, status, error) { 
+				// console.info(xhr.responseText);
+			},
+		});
+	}
+
+	load_position();
+
+
 	
 	function confirm_delete(url, id) {
 		$.confirm({
