@@ -159,6 +159,12 @@
 			},
 		});
 	});
+
+	$(document).on('click', 'a.delete_position', function () {
+		var position_id = $(this).attr('id');
+		confirm_delete('position/delete_position/', position_id);
+	});
+
 	
 	function confirm_delete(url, id) {
 		$.confirm({
