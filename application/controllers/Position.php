@@ -9,12 +9,13 @@ class Position extends CI_Controller
   public function __construct()
   {
     parent::__construct();
-  }
-
+	}
+	
   public function index()
   {
-    // 
-  }
+		$data["page_title"] = "Position";
+		$this->load->view('admin/position', $data); 
+	}
 
 }
 
