@@ -124,7 +124,7 @@
 			method  : "POST",
 			data    : $(this).serialize(),
 			dataType: "json",
-			success : function (data) {
+			success : function (data) { 
 				if (data.response) {
 					notify(data.title, data.content, data.icon, data.type, data.btnClass);
 					$('#add_position_form')[0].reset();
