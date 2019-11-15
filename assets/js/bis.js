@@ -89,6 +89,11 @@
 		});
 	});
 
+	 
+	$(document).on('click', 'a.delete_purok', function () {
+		var purok_id = $(this).attr('id'); 
+	});
+
 
 	function notify(title, content, icon, type, btnClass = 'btn-warning', okAction = "") {
 		$.confirm({
