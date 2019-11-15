@@ -54,13 +54,19 @@
 			data    : $(this).serialize(),
 			dataType: "json",
 			success : function (data) {
-				console.info(data)
+				if (data.response) {
+					notify(data.title, data.content, data.icon, data.type, data.btnClass);
+					$('#add_purok_form')[0].reset();
+				} else {
+					notify(data.title, data.content, data.icon, data.type, data.btnClass);
+				} 
 			},
 			error: function (xhr, status, error) { 
-				// console.info(xhr.responseText); 
+				notify('A Database Error Occurred', 'Duplicate entry', 'fa fa-info', 'blue', 'btn-info');
 			},
-		});
+		}); 
 	});
+ 
 
 
 	function notify(title, content, icon, type, btnClass = 'btn-warning', okAction = "") {
