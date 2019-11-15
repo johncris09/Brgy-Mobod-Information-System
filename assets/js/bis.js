@@ -117,6 +117,26 @@
 
 	load_position();
 
+	$('#add_position_form').on('submit', function (event) {
+		event.preventDefault(); 
+		$.ajax({
+			url     : "insert_position",
+			method  : "POST",
+			data    : $(this).serialize(),
+			dataType: "json",
+			success : function (data) {
+				if (data.response) {
+					notify(data.title, data.content, data.icon, data.type, data.btnClass);
+					$('#add_position_form')[0].reset();
+				} else {
+					notify(data.title, data.content, data.icon, data.type, data.btnClass);
+				} 
+			},
+			error: function (xhr, status, error) { 
+				notify('A Database Error Occurred', 'Duplicate entry', 'fa fa-info', 'blue', 'btn-info');
+			},
+		}); 
+	});
 
 	
 	function confirm_delete(url, id) {
