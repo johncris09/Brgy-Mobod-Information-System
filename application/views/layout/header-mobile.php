@@ -34,6 +34,18 @@
 										</li> 
 									</ul>
 								</li> 
+								<li class="has-sub">
+									<a class="js-arrow" href="#">
+										<i class="fas  fa-sitemap"></i>Postion</a>
+									<ul class="navbar-mobile-sub__list list-unstyled js-sub-list">
+										<li>
+											<a href="<?php echo base_url(); ?>position/add_position	"><i class="fas fa-circle-notch"></i> Add Position</a>
+										</li>
+										<li>
+											<a href="<?php echo base_url(); ?>position"><i class="fas fa-circle-notch"></i> View Position</a>
+										</li> 
+									</ul>
+								</li> 
 							</ul>
 						</div>
 					</nav>
