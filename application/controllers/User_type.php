@@ -105,5 +105,37 @@ class User_type extends CI_Controller
 		$this->load->view('admin/edit_user_type', $data); 
 	}
 
+	
+	public function update_user_type($user_type_id)
+	{
+		$user_type_info = array(
+			'user_type_id'   => $user_type_id,
+			'user_type' => $_POST['user_type'], 
+		);
+
+		$update_user_type = $this->user_type_model->update_user_type($user_type_info);
+		if ($update_user_type) {
+			$data = [
+				'response' => true,
+				'title'    => "Successfully Updated",
+				'content'  => "New Record Successfully Updated!",
+				'icon'     => 'fa fa-check',
+				'type'     => 'green',
+				'btnClass' => 'blue-gradient btn-rounded z-depth-1a',
+			];
+		} else {
+			$data = [
+				'response' => false,
+				'title'    => "Error!",
+				'content'  => "Something went wrong",
+				'icon'     => 'fa fa-warning',
+				'type'     => 'red',
+				'btnClass' => 'btn-danger',
+			];
+		}
+
+		echo json_encode($data);
+	}
+
 }
  

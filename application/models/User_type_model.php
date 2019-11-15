@@ -24,8 +24,14 @@ class User_type_model extends CI_Model {
 		$this->db->where('user_type_id', $user_type_id);
 		$query = $this->db->get('user_type');
 		return $query->result_array()[0];
-	} 
+	}  
 	
+	public function update_user_type($user_type_info)
+	{
+		$this->db->where('user_type_id', $user_type_info['user_type_id']);
+		$query = $this->db->update('user_type', $user_type_info);
+		return $user_type_info['user_type_id'];
+	} 
  
 }
  
