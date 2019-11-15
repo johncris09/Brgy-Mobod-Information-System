@@ -97,5 +97,13 @@ class User_type extends CI_Controller
 		echo json_encode($data);
 	}
 
+	
+	public function edit_user_type($user_type_id)
+	{
+		$data["page_title"] = "Edit User Type";
+		$data['user_type']  = $this->user_type_model->get_user_type($user_type_id);
+		$this->load->view('admin/edit_user_type', $data); 
+	}
+
 }
  
