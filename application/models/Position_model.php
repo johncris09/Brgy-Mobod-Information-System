@@ -13,5 +13,12 @@ class Position_model extends CI_Model {
 		return $this->db->get('position');
 	}
 
+	
+	public function insert_position($position_info)
+	{
+		$this->db->insert('position', $position_info);
+		return $this->db->affected_rows();
+	}
+
 }
  

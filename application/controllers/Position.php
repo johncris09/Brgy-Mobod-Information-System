@@ -65,6 +65,38 @@ class Position extends CI_Controller
 		$this->load->view('admin/add_position', $data); 
 	}
 
+	
+	public function insert_position()
+	{
+		$position_info = array(
+			'position' => $_POST['position'], 
+		);
+
+		$insert_position = $this->position_model->insert_position($position_info);
+		if ($insert_position > 0) {
+			$data = [
+				'response' => true,
+				'title'    => "Successfully Added",
+				'content'  => "New Record Successfully Added!",
+				'icon'     => 'fa fa-check',
+				'type'     => 'green',
+				'btnClass' => 'blue-gradient btn-rounded z-depth-1a',
+			];
+		} else {
+			$data = [
+				'response' => false,
+				'title'    => "Error!",
+				'content'  => "Something went wrong",
+				'icon'     => 'fa fa-warning',
+				'type'     => 'red',
+				'btnClass' => 'btn-danger',
+			];
+		}
+
+		echo json_encode($data);
+	}
+
+
 }
 
  
