@@ -42,7 +42,7 @@ class Purok extends CI_Controller
 							<td>' . $row['purok_id'] . '</td> 
 							<td>' . ucfirst($row['purok']) . '</td>
 							<td><a title="Edit" href="' . base_url() . 'purok/edit_purok/' . $row['purok_id'] . '" class="text-warning h5"><i class="fa fa-edit"></i></a></td>
-							<td><a title="Delete"  id="' . $row['purok_id'] . '" class="text-danger h5 delete_purok"><i class="fa fa-trash"></i></a></td>
+							<td><a href="#" title="Delete"  id="' . $row['purok_id'] . '" class="text-danger h5 delete_purok"><i class="fa fa-trash"></i></a></td>
 						</tr> 
 				';
 			}
@@ -113,6 +113,37 @@ class Purok extends CI_Controller
 				'response' => true,
 				'title'    => "Successfully Updated",
 				'content'  => "New Record Successfully Updated!",
+				'icon'     => 'fa fa-check',
+				'type'     => 'green',
+				'btnClass' => 'blue-gradient btn-rounded z-depth-1a',
+			];
+		} else {
+			$data = [
+				'response' => false,
+				'title'    => "Error!",
+				'content'  => "Something went wrong",
+				'icon'     => 'fa fa-warning',
+				'type'     => 'red',
+				'btnClass' => 'btn-danger',
+			];
+		}
+
+		echo json_encode($data);
+	}
+
+	public function delete_purok($purok_id)
+	{
+		$purok_info = array(
+			'purok_id' => $purok_id
+		);
+		$data = '';
+
+		$delete_purok = $this->purok_model->delete_purok($purok_info);
+		if ($delete_purok > 0) {
+			$data = [
+				'response' => true,
+				'title'    => "Successfully Deleted",
+				'content'  => "New Record Successfully Deleted!",
 				'icon'     => 'fa fa-check',
 				'type'     => 'green',
 				'btnClass' => 'blue-gradient btn-rounded z-depth-1a',

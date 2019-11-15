@@ -33,5 +33,13 @@ class Purok_model extends CI_Model {
 		return $purok_info['purok_id'];
 	}
 
+	
+	public function delete_purok($purok_info)
+	{
+		$this->db->where($purok_info);
+		$query = $this->db->delete('purok');
+		return $this->db->affected_rows();
+	}
+
 }
  
