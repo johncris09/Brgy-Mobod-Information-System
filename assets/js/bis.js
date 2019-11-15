@@ -91,8 +91,54 @@
 
 	 
 	$(document).on('click', 'a.delete_purok', function () {
-		var purok_id = $(this).attr('id'); 
+		var purok_id = $(this).attr('id');
+		confirm_delete('purok/delete_purok/', purok_id);
 	});
+
+	
+	function confirm_delete(url, id) {
+		$.confirm({
+			title            : 'Delete',
+			content          : 'Are you sure you want to delete this data?',
+			columnClass      : 'col-md-4 col-md-offset-8 col-xs-4 col-xs-offset-8',
+			containerFluid   : true,                                                  // this will add 'container-fluid' instead of 'container'
+			icon             : 'fa fa-question',
+			theme            : 'modern',
+			closeIcon        : true,
+			animation        : 'top',
+			closeAnimation   : 'bottom',
+			typeAnimated     : true,
+			backgroundDismiss: true,
+			type             : 'red',
+			buttons          : {
+				ok: {
+					text    : 'Ok',
+					btnClass: "blue-gradient btn-rounded z-depth-1a",
+					keys    : ['enter'],
+					action  : function () {
+						$.ajax({
+							url     : url + id,
+							method  : "POST",
+							data    : $(this).serialize(),
+							dataType: "json",
+							success : function (data) {
+								if (data.response) {
+									notify(data.title, data.content, data.icon, data.type, data.btnClass);
+								} else {
+									notify(data.title, data.content, data.icon, data.type, data.btnClass);
+								}
+								load_purok();
+							},
+							error: function (xhr, status, error) {
+								notify('A Database Error Occurred', 'Cannot delete or update. This data is used in the other operation', 'fa fa-info', 'blue', 'btn-info');
+							},
+						});
+					}
+				},
+				close: function () {}
+			}
+		});
+	}
 
 
 	function notify(title, content, icon, type, btnClass = 'btn-warning', okAction = "") {
