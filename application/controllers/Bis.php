@@ -22,7 +22,7 @@ class Bis extends CI_Controller
 	public function logout()
   {    
 		$user_id = $this->session->userdata('user_id');
-		$update_logout_date = $this->login_model->update_logout_date($user_id); 
+		$update_logout_date = $this->user_model->update_logout_date($user_id); 
 		if($update_logout_date)
 		{	
 			$all_sessions = $this->session->all_userdata();
