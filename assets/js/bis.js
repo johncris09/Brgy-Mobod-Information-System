@@ -165,6 +165,29 @@
 		confirm_delete('position/delete_position/', position_id);
 	});
 
+
+	function load_user_type() {
+		$.ajax({
+			url     : "user_type/load_user_type",
+			method  : "POST",
+			dataType: "json",
+			success : function (data) {  
+				$('#user_type_list').html(data);
+				$('#user_type_data').dataTable({
+					"scrollY": 200,
+					"scrollX": true,
+				});
+			},
+			error: function (xhr, status, error) { 
+				console.info(xhr.responseText);
+			},
+		});
+	}
+
+	load_user_type();
+
+
+
 	function load_user() {
 		$.ajax({
 			url     : "user/load_user",
