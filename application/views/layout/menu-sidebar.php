@@ -36,6 +36,18 @@
 									<a href="<?php echo base_url() ?>position"><i class="fas fa-circle-notch"></i> View Position</a>
 								</li>
 							</ul>
+						</li> 
+						<li class="has-sub">
+							<a class="js-arrow open" href="#">
+								<i class="fas fa-users"></i>User Type</a>
+							<ul class="list-unstyled navbar__sub-list js-sub-list" >
+								<li>
+								<a href="<?php echo base_url() ?>user_type/add_user_type"> <i class="fas fa-circle-notch"></i> Add User Type</a>
+								</li> 
+								<li>
+									<a href="<?php echo base_url() ?>user_type"><i class="fas fa-circle-notch"></i>View User Type</a>
+								</li>
+							</ul>
 						</li>
 						<li class="has-sub">
 							<a class="js-arrow open" href="#">
