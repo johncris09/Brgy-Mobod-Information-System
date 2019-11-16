@@ -64,5 +64,15 @@ class Household extends CI_Controller
 		echo json_encode($output);
 	}
 
+	
+	public function add_household()
+	{
+		$data["page_title"] = "Add Household";
+		$data["purok"] =  $this->purok_model->fetch_purok(); 
+		$this->load->view('admin/add_household', $data); 
+	} 
+
+	 
+
 }
  
