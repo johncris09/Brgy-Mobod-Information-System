@@ -301,6 +301,12 @@
 		});
 	});
 
+	
+	$(document).on('click', 'a.delete_user', function () {
+		var user_id = $(this).attr('id');
+		confirm_delete('user/delete_user/', user_id);
+	});
+
 
 
 	function confirm_delete(url, id) {
@@ -337,6 +343,7 @@
 								load_purok();
 								load_position();
 								load_user_type();
+								load_user();
 							},
 							error: function (xhr, status, error) {
 								// console.info(xhr.responseText);

@@ -171,5 +171,37 @@ class User extends CI_Controller
 		echo json_encode($data);
 	}
 
+	
+	public function delete_user($user_id)
+	{
+		$user_info = array(
+			'user_id' => $user_id
+		);
+		$data = '';
+
+		$delete_user = $this->user_model->delete_user($user_info);
+		if ($delete_user > 0) {
+			$data = [
+				'response' => true,
+				'title'    => "Successfully Deleted",
+				'content'  => "New Record Successfully Deleted!",
+				'icon'     => 'fa fa-check',
+				'type'     => 'green',
+				'btnClass' => 'blue-gradient btn-rounded z-depth-1a',
+			];
+		} else {
+			$data = [
+				'response' => false,
+				'title'    => "Error!",
+				'content'  => "Something went wrong",
+				'icon'     => 'fa fa-warning',
+				'type'     => 'red',
+				'btnClass' => 'btn-danger',
+			];
+		}
+
+		echo json_encode($data);
+	}
+
 }
  
