@@ -307,6 +307,27 @@
 		confirm_delete('user/delete_user/', user_id);
 	});
 
+	
+
+	function load_household() {
+		$.ajax({
+			url     : "household/load_household",
+			method  : "POST",
+			dataType: "json",
+			success : function (data) {
+				$('#household_list').html(data);
+				$('#household_data').dataTable({
+					"scrollY": 200,
+					"scrollX": true,
+				});
+			},
+			error: function (xhr, status, error) {
+				console.info(xhr.responseText);
+			},
+		});
+	}
+
+	load_household();
 
 
 	function confirm_delete(url, id) {
