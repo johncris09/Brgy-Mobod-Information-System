@@ -25,7 +25,7 @@
 									</div>
 									<div class="card-body card-body-cascade">
 										<div class="row">
-											<div class=" col-md-4"> 
+											<!-- <div class=" col-md-4"> 
 												<form id="add_user_form" method="post">
 													<label class="h4">Profile Picture</label>
 													<hr>
@@ -54,8 +54,8 @@
 														</div>
 													</div>
 												</form> 
-											</div>
-											<div class="  col-md-8">
+											</div> -->
+											<div class="  col-md-12">
 												<form id="add_user_form" method="post">
 													<label class="h4">Personal Informaton</label>
 													<hr>
