@@ -90,8 +90,8 @@ class User extends CI_Controller
 			'first_name'      => $_POST['first_name'],
 			'middle_name'     => $_POST['middle_name'],
 			'email'           => empty($_POST['email']) ? null : $_POST['email'] ,
-			'username'        => $_POST['first_name'],
-			'password'        => md5($_POST['middle_name']),
+			'username'        => $_POST['username'],
+			'password'        => md5($_POST['password']),
 			'user_type'       => $_POST['user_type'],
 			'position'        => $_POST['position'],
 			'date_registered' => date('Y-m-d H:i:s', time()),  
@@ -133,5 +133,43 @@ class User extends CI_Controller
 		$data["position"] =  $this->position_model->fetch_position();
 		$this->load->view('admin/edit_user', $data); 
 	}
+
+	public function update_user($user_id)
+	{ 
+		$user_info = array(
+			'user_id'         => $_POST['user_id'],
+			'last_name'       => $_POST['last_name'],
+			'first_name'      => $_POST['first_name'],
+			'middle_name'     => $_POST['middle_name'],
+			'email'           => empty($_POST['email']) ? null : $_POST['email'],
+			'username'        => $_POST['username'], 
+			'user_type'       => $_POST['user_type'],
+			'position'        => $_POST['position'], 
+		);
+
+		$update_user = $this->user_model->update_user($user_info);
+		if ($update_user) {
+			$data = [
+				'response' => true,
+				'title'    => "Successfully Updated",
+				'content'  => "New Record Successfully Updated!",
+				'icon'     => 'fa fa-check',
+				'type'     => 'green',
+				'btnClass' => 'blue-gradient btn-rounded z-depth-1a',
+			];
+		} else {
+			$data = [
+				'response' => false,
+				'title'    => "Error!",
+				'content'  => "Something went wrong",
+				'icon'     => 'fa fa-warning',
+				'type'     => 'red',
+				'btnClass' => 'btn-danger',
+			];
+		}
+
+		echo json_encode($data);
+	}
+
 }
  

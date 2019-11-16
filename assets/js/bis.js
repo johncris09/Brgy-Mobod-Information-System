@@ -279,6 +279,28 @@
 		});
 	});
 
+	$('#update_user_form').on('submit', function (event) {
+		event.preventDefault();
+		var user_id = $('#user_id').val(); 
+		$.ajax({
+			url     : "../update_user/" + user_id,
+			method  : "POST",
+			data    : $(this).serialize(),
+			dataType: "json",
+			success : function (data) {
+				// console.info(data)
+				if (data.response) {
+					notify(data.title, data.content, data.icon, data.type, data.btnClass);
+				} else {
+					notify(data.title, data.content, data.icon, data.type, data.btnClass);
+				}
+			},
+			error: function (xhr, status, error) {
+				notify('A Database Error Occurred', 'Duplicate entry', 'fa fa-info', 'blue', 'btn-info');
+			},
+		});
+	});
+
 
 
 	function confirm_delete(url, id) {
