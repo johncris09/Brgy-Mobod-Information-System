@@ -382,6 +382,28 @@
 		confirm_delete('household/delete_household/', household_id);
 	});
 
+	
+	function load_resident() {
+		$.ajax({
+			url     : "resident/load_resident",
+			method  : "POST",
+			dataType: "json",
+			success : function (data) {
+				// console.info(data)
+				$('#resident_list').html(data);
+				$('#resident_data').dataTable({
+					"scrollY": 200,
+					"scrollX": true,
+				});
+			},
+			error: function (xhr, status, error) {
+				console.info(xhr.responseText);
+			},
+		});
+	}
+
+	load_resident();
+
 
 
 	function confirm_delete(url, id) {
