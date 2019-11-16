@@ -37,6 +37,13 @@ class Household_model extends CI_Model {
 		$this->db->where('household_id', $household_info['household_id']);
 		$query = $this->db->update('household', $household_info);
 		return $query;
+	} 
+
+	public function delete_household($household_info)
+	{
+		$this->db->where($household_info);
+		$query = $this->db->delete('household');
+		return $this->db->affected_rows();
 	}
 
 }

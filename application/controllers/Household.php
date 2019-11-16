@@ -147,5 +147,38 @@ class Household extends CI_Controller
 
 		echo json_encode($data);
 	}
+
+	
+	
+	public function delete_household($household_id)
+	{
+		$household_info = array(
+			'household_id' => $household_id
+		);
+		$data = '';
+
+		$delete_household = $this->household_model->delete_household($household_info);
+		if ($delete_household > 0) {
+			$data = [
+				'response' => true,
+				'title'    => "Successfully Deleted",
+				'content'  => "New Record Successfully Deleted!",
+				'icon'     => 'fa fa-check',
+				'type'     => 'green',
+				'btnClass' => 'blue-gradient btn-rounded z-depth-1a',
+			];
+		} else {
+			$data = [
+				'response' => false,
+				'title'    => "Error!",
+				'content'  => "Something went wrong",
+				'icon'     => 'fa fa-warning',
+				'type'     => 'red',
+				'btnClass' => 'btn-danger',
+			];
+		}
+
+		echo json_encode($data);
+	}
 }
  
