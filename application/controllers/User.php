@@ -120,5 +120,18 @@ class User extends CI_Controller
 
 		echo json_encode($data);
 	}
+
+	
+	public function edit_user($user_id)
+	{
+		$user_info = array(
+			'user_id' => $user_id,
+		);
+		$data["page_title"] = "Edit User";
+		$data['user']  = $this->user_model->get_user_info($user_info)[0];
+		$data["user_type"] =  $this->user_type_model->get_all_user_type();
+		$data["position"] =  $this->position_model->fetch_position();
+		$this->load->view('admin/edit_user', $data); 
+	}
 }
  
