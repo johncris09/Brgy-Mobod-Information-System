@@ -137,5 +137,37 @@ class User_type extends CI_Controller
 		echo json_encode($data);
 	}
 
+	
+	public function delete_user_type($user_type_id)
+	{
+		$user_type_info = array(
+			'user_type_id' => $user_type_id
+		);
+		$data = '';
+
+		$delete_user_type = $this->user_type_model->delete_user_type($user_type_info);
+		if ($delete_user_type > 0) {
+			$data = [
+				'response' => true,
+				'title'    => "Successfully Deleted",
+				'content'  => "New Record Successfully Deleted!",
+				'icon'     => 'fa fa-check',
+				'type'     => 'green',
+				'btnClass' => 'blue-gradient btn-rounded z-depth-1a',
+			];
+		} else {
+			$data = [
+				'response' => false,
+				'title'    => "Error!",
+				'content'  => "Something went wrong",
+				'icon'     => 'fa fa-warning',
+				'type'     => 'red',
+				'btnClass' => 'btn-danger',
+			];
+		}
+
+		echo json_encode($data);
+	}
+
 }
  
