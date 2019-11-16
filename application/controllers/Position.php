@@ -166,6 +166,50 @@ class Position extends CI_Controller
 		echo json_encode($data);
 	}
 
+	
+	public function print()
+	{  
+		$file_name = "position";
+		$data["print_title"] = "List of Position";  
+		$position = $this->position_model->fetch_position(); 
+		$output = '';
+
+		$output .= '
+		<table class="table table-sm table-bordered table-striped">
+					<thead>
+						<tr class="bg-secondary text-white"> 
+							<th>Position</th> 
+						</tr>
+					</thead>
+					<tbody>
+		';
+
+		if ($position->num_rows() > 0) {
+			foreach ($position->result_array() as $row) {
+				$output .= '
+						<tr> 
+							<td>' . ucfirst($row['position']) . '</td>
+						</tr> 
+				';
+			}
+		} 
+
+		$output .= '
+					</tbody>
+				</table>
+			</div>
+		';
+
+		$data["print"] = $output; 
+		
+		// $this->load->view('report/report', $data);
+		
+		$this->pdf->load_view('report/report', $data);
+		$this->pdf->render();
+		$this->pdf->stream($file_name.'.pdf'); 
+ 
+	}
+
 
 }
 
