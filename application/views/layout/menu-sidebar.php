@@ -73,6 +73,18 @@
 								</li>
 							</ul>
 						</li>
+						<li class="has-sub">
+							<a class="js-arrow open" href="#">
+								<i class="fas fa-resident"></i>Resident</a>
+							<ul class="list-unstyled navbar__sub-list js-sub-list" >
+								<li>
+								<a href="<?php echo base_url() ?>resident/add_resident"> <i class="fas fa-circle-notch"></i> Add Resident</a>
+								</li> 
+								<li>
+									<a href="<?php echo base_url() ?>resident"><i class="fas fa-circle-notch"></i>View Resident</a>
+								</li>
+							</ul>
+						</li>
 					</ul>
 				</nav>
 			</div>
