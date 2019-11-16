@@ -7,6 +7,8 @@
 		media="all">
 	<link href="<?php echo base_url() ?>assets/vendor/mdi-font/css/material-design-iconic-font.min.css" rel="stylesheet"
 		media="all">
+	<link href="<?php echo base_url() ?>assets/css/bis.css" rel="stylesheet"
+		media="all">
 
 	<!-- Bootstrap CSS-->
 	<link href="<?php echo base_url() ?>assets/vendor/bootstrap-4.1/bootstrap.min.css" rel="stylesheet" media="all">
