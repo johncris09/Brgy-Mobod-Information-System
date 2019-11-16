@@ -13,8 +13,9 @@ class Resident extends CI_Controller
 
   public function index()
   {
-    // 
-  }
+		$data["page_title"] = "Resident";
+		$this->load->view('admin/resident', $data); 
+	}
 
 }
  
