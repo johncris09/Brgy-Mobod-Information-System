@@ -25,7 +25,7 @@
 										<h2 class="card-header-title my-2 mx-2 float-left text-white">Edit Purok</h2>
 									</div>
 									<div class="card-body card-body-cascade">  
-										<form id="update_purok_form" method="post">
+										<form id="update_household_form" method="post">
 											<div class="mb-2"><small>Note: <span class="text-danger">*</span> is required</small></div>
 											<input value="<?php echo $household['household_id']; ?>" name="household_id" id="household_id" type="hidden" class="form-control">
 											<div class="form-group">
@@ -50,12 +50,12 @@
 											<div class="form-group">
 												<label for="household_no" class="control-label mb-1">Household # <sup
 														class="text-danger">*</sup></label>
-												<input name="household_no" id="household_no" type="text" class="form-control"
+												<input value="<?php echo $household['household_number']; ?>" name="household_no" id="household_no" type="text" class="form-control"
 													placeholder="Household #" required>
 											</div>
 											<div>
-												<button title="Add Household" type="submit"
-													class="btn blue-gradient btn-block btn-rounded z-depth-1a">Add Household</button>
+												<button  title="Update Household" type="submit"
+													class="btn blue-gradient btn-block btn-rounded z-depth-1a">Update Household</button>
 											</div>
 										</form>
 									</div>
