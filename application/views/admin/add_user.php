@@ -67,7 +67,7 @@
 													<div class="form-group">
 														<label for="first_name" class="control-label mb-1">First Name</label>
 														<input name="first_name" id="first_name" type="text" class="form-control"
-															placeholder="First Name">
+															placeholder="First Name" required>
 													</div>
 													<div class="form-group">
 														<label for="middle_name" class="control-label mb-1">Middle Name</label>
@@ -83,16 +83,16 @@
 													<div class="form-group">
 														<label for="username" class="control-label mb-1">Username</label>
 														<input name="username" id="username" type="text" class="form-control"
-															placeholder="Username">
+															placeholder="Username" required>
 													</div>
 													<div class="form-group">
 														<label for="password" class="control-label mb-1">Password</label>
 														<input name="password" id="password" type="password" class="form-control"
-															placeholder="Password">
+															placeholder="Password" required>
 													</div>
 													<div class="form-group">
 														<label for="user_type" class="control-label mb-1">User Type</label>
-														<select name="user_type" id="user_type" class="form-control">
+														<select name="user_type" id="user_type" class="form-control" required>
 															<option value="">Select</option>
 															<?Php
 																if($user_type->num_rows() > 0):
@@ -109,7 +109,7 @@
 													<hr>
 													<div class="form-group">
 														<label for="position" class="control-label mb-1">Position</label>
-														<select name="position" id="position" class="form-control">
+														<select name="position" id="position" class="form-control" required>
 															<option value="">Select</option>
 															<?php
 																if($position->num_rows() > 0):
