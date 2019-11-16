@@ -72,7 +72,39 @@ class Household extends CI_Controller
 		$this->load->view('admin/add_household', $data); 
 	} 
 
-	 
+	
+	public function insert_household()
+	{
+		$household_info = array(
+			'purok_id'       => $_POST['purok'],
+			'household_number'      => $_POST['household_no'], 
+			'oic' => $this->session->userdata('user_id'),
+			'date_accomplished' => date('Y-m-d H:i:s', time()),  
+		); 
+
+		$insert_household = $this->household_model->insert_household($household_info);
+		if ($insert_household > 0) {
+			$data = [
+				'response' => true,
+				'title'    => "Successfully Added",
+				'content'  => "New Record Successfully Added!",
+				'icon'     => 'fa fa-check',
+				'type'     => 'green',
+				'btnClass' => 'blue-gradient btn-rounded z-depth-1a',
+			];
+		} else {
+			$data = [
+				'response' => false,
+				'title'    => "Error!",
+				'content'  => "Something went wrong",
+				'icon'     => 'fa fa-warning',
+				'type'     => 'red',
+				'btnClass' => 'btn-danger',
+			];
+		}
+
+		echo json_encode($data);
+	}
 
 }
  
