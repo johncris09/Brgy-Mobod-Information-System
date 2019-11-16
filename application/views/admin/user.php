@@ -22,6 +22,10 @@
 								<div class="card card-cascade narrower">
 									<div class="view view-cascade gradient-card-header purple-gradient">
 										<h2 class="card-header-title my-2 mx-2 float-left text-white"><?php echo $page_title; ?></h2>
+										<a href="<?php echo base_url() . 'user/print' ?>"
+											class="float-right text-white btn-rounded  btn-lg aqua-gradient my-2 mx-2  " title="Print">
+											<i class="fas fa-print"></i>
+										</a>
 										<a href="<?php echo base_url() . 'user/add_user' ?>"
 											class="float-right text-white btn-rounded  btn-lg peach-gradient my-2 mx-2  " title="Add User">
 											<i class="fas fa-plus"></i> Add User

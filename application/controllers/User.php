@@ -203,5 +203,62 @@ class User extends CI_Controller
 		echo json_encode($data);
 	}
 
+	public function print()
+	{  
+		$file_name = "User";
+		$data["print_title"] = "List of Users";  
+		$user  = $this->user_model->get_users();
+		$output = '';
+
+		$output .= '
+			<table class="text-dark table table-bordered table-striped table-sm" style="font-size: 12px;">
+				<thead>
+					<tr class="bg-secondary text-white">  
+						<th>Last Name</th>
+						<th>First Name</th>
+						<th>Middle Name</th>
+						<th>Email</th>
+						<th>Username</th> 
+						<th>User Type</th>
+						<th>Date Registered</th>
+						<th>Position</th> 
+					</tr>
+				</thead>
+				<tbody>
+		';
+
+		if ($user->num_rows() > 0) {
+			foreach ($user->result_array() as $row) {
+				$output .= '
+						<tr  >  
+							<td>' . ucfirst($row['last_name']) . '</td>
+							<td>' . ucfirst($row['first_name']) . '</td>
+							<td>' . ucfirst($row['middle_name']) . '</td>
+							<td>' . ucfirst($row['email']) . '</td>
+							<td>' . ucfirst($row['username']) . '</td>
+							<td>' . ucfirst($row['user_type']) . '</td>
+							<td>' . date_format(date_create($row['date_registered']),'M d, Y') . '</td> 
+							<td>' . ucfirst($row['position']) . '</td> 
+						</tr> 
+				';
+			}
+		} 
+
+		$output .= '
+					</tbody>
+				</table>
+			</div>
+		';
+
+		$data["print"] = $output; 
+		
+		// $this->load->view('report/report', $data);
+		
+		$this->pdf->load_view('report/report', $data);
+		$this->pdf->render();
+		$this->pdf->stream($file_name.'.pdf'); 
+ 
+	}
+
 }
  
