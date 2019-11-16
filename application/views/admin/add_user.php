@@ -22,8 +22,9 @@
 								<div class="card card-cascade narrower">
 									<div class="view view-cascade gradient-card-header purple-gradient">
 										<h2 class="card-header-title my-2 mx-2 float-left text-white"><?php echo $page_title; ?></h2>
-									</div>
+									</div> 
 									<div class="card-body card-body-cascade">
+										<div class="mb-2"><small>Note: <span class="text-danger">*</span> is required</small></div>
 										<div class="row">
 											<!-- <div class=" col-md-4"> 
 												<form id="add_user_form" method="post">
@@ -55,17 +56,17 @@
 													</div>
 												</form> 
 											</div> -->
-											<div class="  col-md-12">
+											<div class="col-md-12">
 												<form id="add_user_form" method="post">
 													<label class="h4">Personal Informaton</label>
 													<hr>
 													<div class="form-group">
-														<label for="last_name" class="control-label mb-1">Last Name</label>
+														<label for="last_name" class="control-label mb-1">Last Name <sup class="text-danger">*</sup></label>
 														<input name="last_name" id="last_name" type="text" class="form-control"
 															placeholder="Last Name" required autofocus>
 													</div>
 													<div class="form-group">
-														<label for="first_name" class="control-label mb-1">First Name</label>
+														<label for="first_name" class="control-label mb-1">First Name <sup class="text-danger">*</sup></label>
 														<input name="first_name" id="first_name" type="text" class="form-control"
 															placeholder="First Name" required>
 													</div>
@@ -81,17 +82,17 @@
 														<input name="email" id="email" type="email" class="form-control" placeholder="Email">
 													</div>
 													<div class="form-group">
-														<label for="username" class="control-label mb-1">Username</label>
+														<label for="username" class="control-label mb-1">Username <sup class="text-danger">*</sup></label>
 														<input name="username" id="username" type="text" class="form-control"
 															placeholder="Username" required>
 													</div>
 													<div class="form-group">
-														<label for="password" class="control-label mb-1">Password</label>
+														<label for="password" class="control-label mb-1">Password <sup class="text-danger">*</sup></label>
 														<input name="password" id="password" type="password" class="form-control"
 															placeholder="Password" required>
 													</div>
 													<div class="form-group">
-														<label for="user_type" class="control-label mb-1">User Type</label>
+														<label for="user_type" class="control-label mb-1">User Type <sup class="text-danger">*</sup></label>
 														<select name="user_type" id="user_type" class="form-control" required>
 															<option value="">Select</option>
 															<?Php
@@ -108,7 +109,7 @@
 													<label class="h4">Brgy. Position</label>
 													<hr>
 													<div class="form-group">
-														<label for="position" class="control-label mb-1">Position</label>
+														<label for="position" class="control-label mb-1">Position <sup class="text-danger">*</sup></label>
 														<select name="position" id="position" class="form-control" required>
 															<option value="">Select</option>
 															<?php
