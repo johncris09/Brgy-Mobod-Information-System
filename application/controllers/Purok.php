@@ -161,6 +161,50 @@ class Purok extends CI_Controller
 
 		echo json_encode($data);
 	}
+
+	
+	public function print()
+	{  
+		$file_name = "purok";
+		$data["print_title"] = "List of Puroks";  
+		$purok = $this->purok_model->fetch_purok(); 
+		$output = '';
+
+		$output .= '
+		<table class="table table-sm table-bordered table-striped">
+					<thead>
+						<tr class="bg-secondary text-white"> 
+							<th>Purok</th> 
+						</tr>
+					</thead>
+					<tbody>
+		';
+
+		if ($purok->num_rows() > 0) {
+			foreach ($purok->result_array() as $row) {
+				$output .= '
+						<tr> 
+							<td>' . ucfirst($row['purok']) . '</td>
+						</tr> 
+				';
+			}
+		} 
+
+		$output .= '
+					</tbody>
+				</table>
+			</div>
+		';
+
+		$data["print"] = $output; 
+		
+		// $this->load->view('report/report', $data);
+		
+		$this->pdf->load_view('report/report', $data);
+		$this->pdf->render();
+		$this->pdf->stream($file_name.'.pdf'); 
+ 
+	}
 	
 
 }
