@@ -334,4 +334,20 @@
 		});
 	}
 
+	$('.inputFile').on('change', function () {
+		showPreview($(this)[0]);
+	});
+
+	function showPreview(objFileInput) {
+		if (objFileInput.files[0]) {
+			var fileReader = new FileReader();
+			fileReader.onload = function (e) {
+				$(".img.icon-choose-image").css('opacity', '0.1');
+				$("#targetLayer").html('<img src="' + e.target.result + '" width="200px"   class="image upload-preview" />');
+				$("#targetLayer").css('opacity', '0.7');
+			}
+			fileReader.readAsDataURL(objFileInput.files[0]);
+		}
+	}
+
 })(jQuery);
