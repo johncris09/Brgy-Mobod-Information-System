@@ -82,6 +82,43 @@ class User extends CI_Controller
 		$data["user_type"] =  $this->user_type_model->get_all_user_type();
 		$data["position"] =  $this->position_model->fetch_position();
 		$this->load->view('admin/add_user', $data); 
+	} 
+	public function insert_user()
+	{
+		$user_info = array(
+			'last_name'       => $_POST['last_name'],
+			'first_name'      => $_POST['first_name'],
+			'middle_name'     => $_POST['middle_name'],
+			'email'           => empty($_POST['email']) ? null : $_POST['email'] ,
+			'username'        => $_POST['first_name'],
+			'password'        => md5($_POST['middle_name']),
+			'user_type'       => $_POST['user_type'],
+			'position'        => $_POST['position'],
+			'date_registered' => date('Y-m-d H:i:s', time()),  
+		);
+
+		$insert_user = $this->user_model->insert_user($user_info);
+		if ($insert_user > 0) {
+			$data = [
+				'response' => true,
+				'title'    => "Successfully Added",
+				'content'  => "New Record Successfully Added!",
+				'icon'     => 'fa fa-check',
+				'type'     => 'green',
+				'btnClass' => 'blue-gradient btn-rounded z-depth-1a',
+			];
+		} else {
+			$data = [
+				'response' => false,
+				'title'    => "Error!",
+				'content'  => "Something went wrong",
+				'icon'     => 'fa fa-warning',
+				'type'     => 'red',
+				'btnClass' => 'btn-danger',
+			];
+		}
+
+		echo json_encode($data);
 	}
 }
  

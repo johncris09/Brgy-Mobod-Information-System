@@ -76,7 +76,13 @@ class User_model extends CI_Model {
 		$this->db->join('position', 'position.position_id = user.position');
 		$this->db->join('user_type', 'user_type.user_type_id = user.user_type');
 		return $this->db->get();
-	}
+	} 
+
+	public function insert_user($user_info)
+	{
+		$this->db->insert('user', $user_info);
+		return $this->db->affected_rows();
+	} 
  
 
 }
