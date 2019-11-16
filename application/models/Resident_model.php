@@ -9,9 +9,9 @@ class Resident_model extends CI_Model {
     parent::__construct();
   }
  
-	public function index()
-  {
-    // 
-  }
+	public function fetch_resident()
+	{
+		return $this->db->get('resident');
+	}
  
 }
