@@ -28,7 +28,7 @@
 										<hr>
 										<form id="update_user_type_form" method="post">
 											<div class="form-group">
-												<input name="user_type" id="user_type" type="hidden" value="<?php echo $user_type['user_type_id'] ?>" class="form-control"
+												<input name="user_type_id" id="user_type_id" type="hidden" value="<?php echo $user_type['user_type_id'] ?>" class="form-control"
 													required autofocus>
 											</div>
 											<div class="form-group">
