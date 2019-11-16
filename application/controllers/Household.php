@@ -19,7 +19,7 @@ class Household extends CI_Controller
 
 	public function load_household()
 	{
-		$household  = $this->household_model->get_household();
+		$household  = $this->household_model->fetch_household();
 		$output = '';
 
 		$output .= '
@@ -104,7 +104,14 @@ class Household extends CI_Controller
 		}
 
 		echo json_encode($data);
+	} 
+	
+	public function edit_household($household_id)
+	{
+		$data["page_title"] = "Edit household";
+		$data['household']  = $this->household_model->get_household($household_id); 
+		$data["purok"] =  $this->purok_model->fetch_purok(); 
+		$this->load->view('admin/edit_household', $data); 
 	}
-
 }
  
