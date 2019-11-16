@@ -74,5 +74,14 @@ class User extends CI_Controller
 
 		echo json_encode($output);
 	}
+ 
+
+	public function add_user()
+	{
+		$data["page_title"] = "Add User";
+		$data["user_type"] =  $this->user_type_model->get_all_user_type();
+		$data["position"] =  $this->position_model->fetch_position();
+		$this->load->view('admin/add_user', $data); 
+	}
 }
  
