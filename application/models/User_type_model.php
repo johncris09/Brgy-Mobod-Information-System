@@ -32,6 +32,19 @@ class User_type_model extends CI_Model {
 		$query = $this->db->update('user_type', $user_type_info);
 		return $user_type_info['user_type_id'];
 	} 
+
+	public function delete_user_type($user_type_info)
+	{
+		$this->db->where($user_type_info);
+		$query = $this->db->delete('user_type');
+		return $this->db->affected_rows();
+	}
+
+	public function get_all_user_type()
+	{ 
+		return $this->db->get('user_type'); 
+	}
+
  
 }
  
