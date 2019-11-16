@@ -229,7 +229,7 @@
 .fa-stack-2x {
 	font-size: 2em
 }
-
+ 
 .fa-inverse {
 	color: #fff
 }
@@ -257,6 +257,10 @@
 .fa-adjust:before {
 	content: "\f042"
 }
+
+.fa-resident:before {
+	content: "\e900"
+} 
 
 .fa-adn:before {
 	content: "\f170"
@@ -3605,6 +3609,14 @@
 	font-weight: 900;
 	src: url(../webfonts/fa-solid-900.eot);
 	src: url(../webfonts/fa-solid-900.eot?#iefix) format("embedded-opentype"), url(../webfonts/fa-solid-900.woff2) format("woff2"), url(../webfonts/fa-solid-900.woff) format("woff"), url(../webfonts/fa-solid-900.ttf) format("truetype"), url(../webfonts/fa-solid-900.svg#fontawesome) format("svg")
+}
+
+@font-face {
+	font-family: Font Awesome\ 5 Free;
+	font-style: normal;
+	font-weight: 900;
+	src: url(../webfonts/icomoon.eot);
+	src: url(../webfonts/icomoon.eot?#iefix) format("embedded-opentype"), url(../webfonts/icomoon.woff2) format("woff2"), url(../webfonts/icomoon.woff) format("woff"), url(../webfonts/icomoon.ttf) format("truetype"), url(../webfonts/icomoon.svg#fontawesome) format("svg")
 }
 
 .fa,
