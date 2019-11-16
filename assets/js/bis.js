@@ -328,6 +328,29 @@
 	}
 
 	load_household();
+
+	
+
+	$('#update_household_form').on('submit', function (event) {
+		event.preventDefault();
+		var household_id = $('#household_id').val();  
+		$.ajax({
+			url     : "../update_household/" + household_id,
+			method  : "POST",
+			data    : $(this).serialize(),
+			dataType: "json",
+			success : function (data) {
+				if (data.response) {
+					notify(data.title, data.content, data.icon, data.type, data.btnClass);
+				} else {
+					notify(data.title, data.content, data.icon, data.type, data.btnClass);
+				}
+			},
+			error: function (xhr, status, error) {
+				notify('A Database Error Occurred', 'Duplicate entry', 'fa fa-info', 'blue', 'btn-info');
+			},
+		});
+	});
  
 
 	$('#add_household_form').on('submit', function (event) {

@@ -113,5 +113,39 @@ class Household extends CI_Controller
 		$data["purok"] =  $this->purok_model->fetch_purok(); 
 		$this->load->view('admin/edit_household', $data); 
 	}
+
+	
+
+	public function update_household($household_id)
+	{
+		$household_info = array(
+			'household_id'     => $household_id,
+			'purok_id'         => $_POST['purok'],
+			'household_number' => $_POST['household_no'],
+		);
+
+		$update_household = $this->household_model->update_household($household_info);
+		if ($update_household) {
+			$data = [
+				'response' => true,
+				'title'    => "Successfully Updated",
+				'content'  => "New Record Successfully Updated!",
+				'icon'     => 'fa fa-check',
+				'type'     => 'green',
+				'btnClass' => 'blue-gradient btn-rounded z-depth-1a',
+			];
+		} else {
+			$data = [
+				'response' => false,
+				'title'    => "Error!",
+				'content'  => "Something went wrong",
+				'icon'     => 'fa fa-warning',
+				'type'     => 'red',
+				'btnClass' => 'btn-danger',
+			];
+		}
+
+		echo json_encode($data);
+	}
 }
  

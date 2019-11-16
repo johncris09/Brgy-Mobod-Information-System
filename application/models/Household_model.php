@@ -30,7 +30,14 @@ class Household_model extends CI_Model {
 		$this->db->join('user', 'user.user_id = household.oic');  
 		$this->db->where('household_id', $household_id);
 		return $this->db->get()->result_array()[0];
-	} 
+	}  
+
+	public function update_household($household_info)
+	{
+		$this->db->where('household_id', $household_info['household_id']);
+		$query = $this->db->update('household', $household_info);
+		return $query;
+	}
 
 }
   
