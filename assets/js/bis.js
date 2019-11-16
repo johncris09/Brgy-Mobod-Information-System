@@ -375,6 +375,14 @@
 		});
 	});
 
+	
+	
+	$(document).on('click', 'a.delete_household', function () {
+		var household_id = $(this).attr('id');
+		confirm_delete('household/delete_household/', household_id);
+	});
+
+
 
 	function confirm_delete(url, id) {
 		$.confirm({
@@ -411,6 +419,7 @@
 								load_position();
 								load_user_type();
 								load_user();
+								load_household();
 							},
 							error: function (xhr, status, error) {
 								// console.info(xhr.responseText);
