@@ -6,16 +6,14 @@
  
 </head>
 
-<body>
-	<div class="container">
+<body> 
 		<div class="text-center">
 			<h1>Brgy. Mobod</h1>
 			<p>Oroquieta City</p>
 		</div>
 		<h3><?php echo $print_title; ?></h3>
 		<?php echo $print; ?>
-
-	</div>
+ 
 </body>
 
 </html>
