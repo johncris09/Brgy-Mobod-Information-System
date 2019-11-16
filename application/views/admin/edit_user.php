@@ -61,6 +61,7 @@
 												<form id="update_user_form" method="post">
 													<label class="h4">Personal Informaton</label> 
 													<hr>
+													<input value="<?php echo $user['user_id']; ?>" type="hidden" name="user_id" id="user_id" >
 													<div class="form-group">
 														<label for="last_name" class="control-label mb-1">Last Name <sup class="text-danger">*</sup></label>
 														<input value="<?php echo $user['last_name']; ?>" name="last_name" id="last_name" type="text" class="form-control"
