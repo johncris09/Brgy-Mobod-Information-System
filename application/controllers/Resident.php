@@ -90,17 +90,19 @@ class Resident extends CI_Controller
 	public function insert_resident()
 	{
 		$resident_info = array(
-			'last_name'    => $_POST['last_name'],
-			'first_name'   => $_POST['first_name'],
-			'middle_name'  => $_POST['middle_name'],
-			'extension'    => $_POST['extension'],
-			'birthplace'   => $_POST['birthplace'],
-			'birthdate'    => $_POST['birthdate'],
-			'gender'       => $_POST['gender'],
-			'civil_status' => $_POST['civil_status'],
-			'citizenship'  => $_POST['citizenship'],
-			'occupation'   => $_POST['occupation'],
-			'religion'     => $_POST['religion'],
+			'last_name'         => $_POST['last_name'],
+			'first_name'        => $_POST['first_name'],
+			'middle_name'       => $_POST['middle_name'],
+			'extension'         => $_POST['extension'],
+			'birthplace'        => $_POST['birthplace'],
+			'birthdate'         => $_POST['birthdate'],
+			'gender'            => $_POST['gender'],
+			'civil_status'      => $_POST['civil_status'],
+			'citizenship'       => $_POST['citizenship'],
+			'occupation'        => $_POST['occupation'],
+			'religion'          => $_POST['religion'],
+			'oic'               => $this->session->userdata('user_id'),
+			'date_accomplished' => date('Y-m-d H:i:s', time()),
 		);
 
 		$insert_resident = $this->resident_model->insert_resident($resident_info);
