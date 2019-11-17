@@ -13,5 +13,12 @@ class Resident_model extends CI_Model {
 	{
 		return $this->db->get('resident');
 	}
+	
+	public function insert_resident($resident_info)
+	{
+		$this->db->insert('resident', $resident_info);
+		return $this->db->insert_id(); 
+		
+	} 
  
 }

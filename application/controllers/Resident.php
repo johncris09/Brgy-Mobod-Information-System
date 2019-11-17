@@ -83,7 +83,56 @@ class Resident extends CI_Controller
 	public function add_resident()
 	{
 		$data["page_title"] = "Add Resident";
+		$data["household"] = $this->household_model->fetch_household();
 		$this->load->view('admin/add_resident', $data); 
+	} 
+
+	public function insert_resident()
+	{
+		$resident_info = array(
+			'last_name'    => $_POST['last_name'],
+			'first_name'   => $_POST['first_name'],
+			'middle_name'  => $_POST['middle_name'],
+			'extension'    => $_POST['extension'],
+			'birthplace'   => $_POST['birthplace'],
+			'birthdate'    => $_POST['birthdate'],
+			'gender'       => $_POST['gender'],
+			'civil_status' => $_POST['civil_status'],
+			'citizenship'  => $_POST['citizenship'],
+			'occupation'   => $_POST['occupation'],
+			'religion'     => $_POST['religion'],
+		);
+
+		$insert_resident = $this->resident_model->insert_resident($resident_info);
+		if ($insert_resident > 0) {
+			$residence_household_info = array(
+				'resident_id'  => $insert_resident,
+				'household_id' => $_POST['household'], 
+			);
+
+			// insert to residence_household
+			$this->residence_household_model->insert_residence_household($residence_household_info);
+
+			$data = [
+				'response' => true,
+				'title'    => "Successfully Added",
+				'content'  => "New Record Successfully Added!",
+				'icon'     => 'fa fa-check',
+				'type'     => 'green',
+				'btnClass' => 'blue-gradient btn-rounded z-depth-1a',
+			];
+		} else {
+			$data = [
+				'response' => false,
+				'title'    => "Error!",
+				'content'  => "Something went wrong",
+				'icon'     => 'fa fa-warning',
+				'type'     => 'red',
+				'btnClass' => 'btn-danger',
+			];
+		}
+
+		echo json_encode($data);
 	}
 }
  

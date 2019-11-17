@@ -369,8 +369,8 @@
 				}
 			},
 			error: function (xhr, status, error) {
-				console.info(xhr.responseText);
-				// notify('A Database Error Occurred', 'Duplicate entry', 'fa fa-info', 'blue', 'btn-info');
+				// console.info(xhr.responseText);
+				notify('A Database Error Occurred', 'Duplicate entry', 'fa fa-info', 'blue', 'btn-info');
 			},
 		});
 	});
@@ -397,12 +397,35 @@
 				});
 			},
 			error: function (xhr, status, error) {
-				console.info(xhr.responseText);
+				// console.info(xhr.responseText);
 			},
 		});
 	}
 
-	load_resident();
+	load_resident(); 
+
+	$('#add_resident_form').on('submit', function (event) {
+		event.preventDefault();  
+		console.info($(this).serialize())
+		$.ajax({
+			url     : "insert_resident",
+			method  : "POST",
+			data    : $(this).serialize(),
+			dataType: "json",
+			success : function (data) { 
+				if (data.response) {
+					notify(data.title, data.content, data.icon, data.type, data.btnClass);
+					$('#add_resident_form')[0].reset();
+				} else {
+					notify(data.title, data.content, data.icon, data.type, data.btnClass);
+				}
+			},
+			error: function (xhr, status, error) {
+				// console.info(xhr.responseText);
+				notify('A Database Error Occurred', 'Duplicate entry', 'fa fa-info', 'blue', 'btn-info');
+			},
+		});
+	});
 
 
 
