@@ -136,5 +136,18 @@ class Resident extends CI_Controller
 
 		echo json_encode($data);
 	}
+
+	public function edit_resident($resident_id)
+	{ 
+		$data["page_title"] = "Edit Resident";
+		$data["household"] = $this->household_model->fetch_household();
+		$data["resident"] = $this->resident_model->get_resident($resident_id); 
+		$this->load->view('admin/edit_resident', $data); 
+	}
+
+	
+
+		echo json_encode($data);
+	}
 }
  
