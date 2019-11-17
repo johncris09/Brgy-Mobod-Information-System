@@ -428,6 +428,31 @@
 	});
 
 
+	
+	
+	function load_residece_household() { 
+		var household_id = $('#household_id').text()
+		$.ajax({
+			url     : "../load_residence_household/" + household_id,
+			method  : "POST",
+			dataType: "json",
+			success : function (data) {
+				// console.info(data)
+				$('#residence_household_list').html(data);
+				$('#residence_household_data').dataTable({
+					"scrollY": 200,
+					"scrollX": true,
+				}); 
+			},
+			error: function (xhr, status, error) {
+				// console.info(xhr.responseText);
+			},
+		});
+	}
+
+	load_residece_household(); 
+
+
 
 	function confirm_delete(url, id) {
 		$.confirm({
