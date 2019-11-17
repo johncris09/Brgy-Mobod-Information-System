@@ -31,20 +31,35 @@
 									<div class="overview__inner">
 										<div class="overview-box clearfix">
 											<div class="icon">
-												<i class="zmdi zmdi-account-o"></i>
+												<i class="fas fa-user"></i>
 											</div> 
 											<div class="mb-5 text">
-												<h2><?php echo $num_users; ?></h2>
-												<span># of Users</span>
+												<h2><?php echo $total_users; ?></h2>
+												<span>Total Users</span>
 											</div>
 										</div> 
 									</div>
 								</div>
 							</div> 
+							<div class="col-sm-6 col-lg-3">
+								<div class="overview-item overview-item--c3">
+									<div class="overview__inner">
+										<div class="overview-box clearfix">
+											<div class="icon">
+												<i class="fas fa-home"></i>
+											</div> 
+											<div class="mb-5 text">
+												<h2><?php echo $total_household; ?></h2>
+												<span>Total Household</span>
+											</div>
+										</div> 
+									</div>
+								</div>
+							</div>  
 						</div>  
 					</div>
 				</div>
-			</div>
+			</div>    
 			<!-- END MAIN CONTENT-->
 			<!-- END PAGE CONTAINER-->
 		</div>
