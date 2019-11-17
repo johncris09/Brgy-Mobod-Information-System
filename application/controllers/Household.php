@@ -105,8 +105,8 @@ class Household extends CI_Controller
 	public function edit_household($household_id)
 	{
 		$data["page_title"] = "Edit household";
-		$data['household']  = $this->household_model->get_household($household_id); 
-		$data["purok"] =  $this->purok_model->fetch_purok(); 
+		$data['household']  = $this->household_model->get_household($household_id);
+		$data["purok"]      = $this->purok_model->fetch_purok();
 		$this->load->view('admin/edit_household', $data); 
 	}
 
