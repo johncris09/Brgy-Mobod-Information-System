@@ -32,6 +32,7 @@ class Household extends CI_Controller
 							<th>Household #</th>
 							<th>Date Accomplished</th>
 							<th>OIC</th> 
+							<th>View</th> 
 							<th>Edit</th>
 							<th>Delete</th>
 						</tr>
@@ -48,6 +49,7 @@ class Household extends CI_Controller
 							<td>' . $row['household_number'] . '</td> 
 							<td>' . date_format(date_create($row['date_registered']),'M d, Y') . '</td> 
 							<td>' . ucfirst($row['last_name'] .','. $row['first_name'] . ' '. $row['middle_name']  ). '</td> 
+							<td><a title="View" href="' . base_url() . 'household/view_household/' . $row['household_id'] . '" class=" text-primary h5"><i class="fa fa-eye"></i></a></td>
 							<td><a title="Edit" href="' . base_url() . 'household/edit_household/' . $row['household_id'] . '" class=" text-warning h5"><i class="fa fa-edit"></i></a></td>
 							<td><a href="#" title="Delete"  id="' . $row['household_id'] . '" class="text-danger h5 delete_household"><i class="fa fa-trash"></i></a></td>
 						</tr> 
