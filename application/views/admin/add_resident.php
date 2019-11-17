@@ -59,7 +59,7 @@
 											<div class="col-md-12">
 												<form id="add_resident_form" method="post">
 													<label class="h4">Personal Informaton</label>
-													<hr>
+													<hr> 
 													<div class="form-group">
 														<label for="last_name" class="control-label mb-1">Last Name <sup class="text-danger">*</sup></label>
 														<input name="last_name" id="last_name" type="text" class="form-control"
@@ -153,6 +153,23 @@
 															?> 
 														</select>
 													</div>  
+													<label class="h4">Household</label>
+													<hr> 
+													<div class="form-group"> 
+														<label for="household" class="control-label mb-1">Household <sup class="text-danger">*</sup></label> 
+														<select name="household" id="household" class="form-control" required>
+															<option value="">Select</option> 
+															<?php
+																if($household->num_rows() > 0):
+																	foreach($household->result_array() as $row):
+																		echo ' 
+																			<option value="'.$row['household_id'].'">'. $row['household_number'].'</option> 
+																		';
+																	endforeach;
+																endif; 
+															?>
+														</select>
+													</div>
 													<div>
 														<button title="Add Resident" type="submit"
 															class="btn blue-gradient btn-block btn-rounded z-depth-1a">Add Resident</button>
