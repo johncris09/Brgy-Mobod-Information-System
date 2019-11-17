@@ -28,5 +28,11 @@ class Residence_household_model extends CI_Model {
 		$query = $this->db->update('residence_household', $residence_household_info); 
 		return $query;
 	}
+	public function delete_residence_household($residence_household_info)
+	{
+		$this->db->where($residence_household_info);
+		$query = $this->db->delete('residence_household');
+		return $this->db->affected_rows();
+	}
  
 } 
