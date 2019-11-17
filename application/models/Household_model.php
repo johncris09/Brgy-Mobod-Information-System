@@ -12,8 +12,7 @@ class Household_model extends CI_Model {
 	public function fetch_household()
 	{  
 		$this->db->from('household');  
-		$this->db->join('purok', 'purok.purok_id = household.purok_id');
-		$this->db->join('user', 'user.user_id = household.oic');  
+		$this->db->join('purok', 'purok.purok_id = household.purok_id'); 
 		return $this->db->get();
 	} 
 
