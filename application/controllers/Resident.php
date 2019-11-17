@@ -146,6 +146,50 @@ class Resident extends CI_Controller
 	}
 
 	
+	public function update_resident($resident_id)
+	{ 
+		$resident_info = array(
+			'resident_id'  => $resident_id,
+			'last_name'    => $_POST['last_name'],
+			'first_name'   => $_POST['first_name'],
+			'middle_name'  => $_POST['middle_name'],
+			'extension'    => $_POST['extension'],
+			'birthplace'   => $_POST['birthplace'],
+			'birthdate'    => $_POST['birthdate'],
+			'gender'       => $_POST['gender'],
+			'civil_status' => $_POST['civil_status'],
+			'citizenship'  => $_POST['citizenship'],
+			'occupation'   => $_POST['occupation'],
+			'religion'     => $_POST['religion'],
+		);  
+
+		$update_resident = $this->resident_model->update_resident($resident_info);
+		if ($update_resident) {
+			$residence_household_info = array(
+				'resident_id'  => $resident_id,
+				'household_id' => $_POST['household'], 
+			);
+
+			// update to residence_household
+			$this->residence_household_model->update_residence_household($residence_household_info);
+			$data = [
+				'response' => true,
+				'title'    => "Successfully Updated",
+				'content'  => "New Record Successfully Updated!",
+				'icon'     => 'fa fa-check',
+				'type'     => 'green',
+				'btnClass' => 'blue-gradient btn-rounded z-depth-1a',
+			];
+		} else {
+			$data = [
+				'response' => false,
+				'title'    => "Error!",
+				'content'  => "Something went wrong",
+				'icon'     => 'fa fa-warning',
+				'type'     => 'red',
+				'btnClass' => 'btn-danger',
+			];
+		}
 
 		echo json_encode($data);
 	}

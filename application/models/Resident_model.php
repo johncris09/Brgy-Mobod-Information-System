@@ -29,6 +29,12 @@ class Resident_model extends CI_Model {
 		return $this->db->get()->result_array()[0];
 	} 
 	
+	public function update_resident($resident_info)
+	{
+		$this->db->where('resident_id', $resident_info['resident_id']);
+		$query = $this->db->update('resident', $resident_info); 
+		return $query;
+	}
 
  
 }
