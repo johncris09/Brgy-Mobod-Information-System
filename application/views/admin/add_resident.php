@@ -162,8 +162,12 @@
 															<?php
 																if($household->num_rows() > 0):
 																	foreach($household->result_array() as $row):
+																		$selected = "";
+																		if($_GET['household_id'] == $row['household_id']):
+																			$selected = "selected";
+																		endif;
 																		echo ' 
-																			<option value="'.$row['household_id'].'">'. $row['household_number'].'</option> 
+																			<option value="'.$row['household_id'].'" '.$selected.'>'. $row['household_number'].'</option> 
 																		';
 																	endforeach;
 																endif; 
