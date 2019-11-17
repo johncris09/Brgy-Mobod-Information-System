@@ -193,5 +193,41 @@ class Resident extends CI_Controller
 
 		echo json_encode($data);
 	}
+
+	
+
+	public function delete_resident($resident_id)
+	{
+		$resident_info = array(
+			'resident_id' => $resident_id
+		);
+		$data = '';
+		
+		$this->residence_household_model->delete_residence_household($resident_info);
+
+		$delete_resident = $this->resident_model->delete_resident($resident_info);
+		if ($delete_resident > 0) {
+			$data = [
+				'response' => true,
+				'title'    => "Successfully Deleted",
+				'content'  => "New Record Successfully Deleted!",
+				'icon'     => 'fa fa-check',
+				'type'     => 'green',
+				'btnClass' => 'blue-gradient btn-rounded z-depth-1a',
+			];
+		} else {
+			$data = [
+				'response' => false,
+				'title'    => "Error!",
+				'content'  => "Something went wrong",
+				'icon'     => 'fa fa-warning',
+				'type'     => 'red',
+				'btnClass' => 'btn-danger',
+			];
+		}
+
+		echo json_encode($data);
+	}
+
 }
  

@@ -36,5 +36,13 @@ class Resident_model extends CI_Model {
 		return $query;
 	}
 
+	
+	public function delete_resident($resident_info)
+	{
+		$this->db->where($resident_info);
+		$query = $this->db->delete('resident');
+		return $this->db->affected_rows();
+	}
+
  
 }

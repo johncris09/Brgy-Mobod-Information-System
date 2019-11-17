@@ -405,8 +405,7 @@
 	load_resident(); 
 
 	$('#add_resident_form').on('submit', function (event) {
-		event.preventDefault();  
-		console.info($(this).serialize())
+		event.preventDefault();   
 		$.ajax({
 			url     : "insert_resident",
 			method  : "POST",
@@ -446,10 +445,12 @@
 				notify('A Database Error Occurred', 'Duplicate entry', 'fa fa-info', 'blue', 'btn-info');
 			},
 		});
-	});
+	}); 
 
-
-
+	$(document).on('click', 'a.delete_resident', function () {
+		var resident_id = $(this).attr('id'); 
+		confirm_delete('../../resident/delete_resident/', resident_id);
+	}); 
 	
 	
 	function load_residece_household() { 
@@ -472,7 +473,7 @@
 		});
 	}
 
-	load_residece_household(); 
+	load_residece_household();  
 
 
 
@@ -512,9 +513,11 @@
 								load_user_type();
 								load_user();
 								load_household();
+								load_resident();
 							},
 							error: function (xhr, status, error) {
 								// console.info(xhr.responseText);
+
 								notify('A Database Error Occurred', 'Cannot delete or update. This data is used in the other operation', 'fa fa-info', 'blue', 'btn-info');
 							},
 						});
