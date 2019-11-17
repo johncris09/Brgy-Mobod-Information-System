@@ -21,7 +21,12 @@ class Residence_household_model extends CI_Model {
 		$this->db->insert('residence_household', $residence_household_info);
 		return $this->db->affected_rows();
 	}
-	
- 
 
+	public function update_residence_household($residence_household_info)
+	{
+		$this->db->where('resident_id', $residence_household_info['resident_id']);
+		$query = $this->db->update('residence_household', $residence_household_info); 
+		return $query;
+	}
+ 
 } 
