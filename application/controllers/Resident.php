@@ -79,5 +79,11 @@ class Resident extends CI_Controller
 		echo json_encode($output);
 	}
 
+	
+	public function add_resident()
+	{
+		$data["page_title"] = "Add Resident";
+		$this->load->view('admin/add_resident', $data); 
+	}
 }
  
