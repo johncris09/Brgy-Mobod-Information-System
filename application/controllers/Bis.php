@@ -15,8 +15,10 @@ class Bis extends CI_Controller
 
   public function index()
   {  
-		$data["page_title"] = "Dashboard";
-		$data["num_users"] = $this->user_model->get_users()->num_rows();
+		$data["page_title"]       = "Dashboard";
+		$data["total_users"]       = $this->user_model->get_users()->num_rows();
+		$data["total_population"] = $this->resident_model->fetch_resident()->num_rows();
+		$data["total_household"]  = $this->household_model->fetch_household()->num_rows();
 		$this->load->view('admin/index', $data); 
 	}
 
