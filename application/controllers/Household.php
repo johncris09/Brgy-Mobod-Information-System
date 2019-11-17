@@ -29,9 +29,7 @@ class Household extends CI_Controller
 						<tr>
 							<th>ID</th> 
 							<th>Purok</th>
-							<th>Household #</th>
-							<th>Date Accomplished</th>
-							<th>OIC</th> 
+							<th>Household #</th> 
 							<th>View</th> 
 							<th>Edit</th>
 							<th>Delete</th>
@@ -47,9 +45,7 @@ class Household extends CI_Controller
 							<td>' . $row['household_id'] . '</td>  
 							<td>' . ucfirst($row['purok']) . '</td> 
 							<td>' . $row['household_number'] . '</td> 
-							<td>' . date_format(date_create($row['date_registered']),'M d, Y') . '</td> 
-							<td>' . ucfirst($row['last_name'] .','. $row['first_name'] . ' '. $row['middle_name']  ). '</td> 
-							<td><a title="View" href="' . base_url() . 'household/view_household/' . $row['household_id'] . '" class=" text-primary h5"><i class="fa fa-eye"></i></a></td>
+							<td><a title="View" href="' . base_url() . 'residence_household/view_residence_household/' . $row['household_id'] . '" class=" text-primary h5"><i class="fa fa-eye"></i></a></td>
 							<td><a title="Edit" href="' . base_url() . 'household/edit_household/' . $row['household_id'] . '" class=" text-warning h5"><i class="fa fa-edit"></i></a></td>
 							<td><a href="#" title="Delete"  id="' . $row['household_id'] . '" class="text-danger h5 delete_household"><i class="fa fa-trash"></i></a></td>
 						</tr> 
@@ -80,8 +76,6 @@ class Household extends CI_Controller
 		$household_info = array(
 			'purok_id'       => $_POST['purok'],
 			'household_number'      => $_POST['household_no'], 
-			'oic' => $this->session->userdata('user_id'),
-			'date_accomplished' => date('Y-m-d H:i:s', time()),  
 		); 
 
 		$insert_household = $this->household_model->insert_household($household_info);
